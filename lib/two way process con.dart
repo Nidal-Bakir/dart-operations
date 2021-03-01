@@ -37,6 +37,12 @@ class TwoWayIsolate {
 
     return completer.future;
   }
+
+  /// close the stream and kill the child process
+  void close() async {
+    await isolateToMainStream.close();
+    isolate.kill();
+  }
 }
 
 void function(List args) {
@@ -45,5 +51,3 @@ void function(List args) {
 
   args[0](args[1], receivePort); // invoke the isolate function
 }
-
-

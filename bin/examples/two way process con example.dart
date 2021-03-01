@@ -8,6 +8,9 @@ void main() async {
     print(message + ' listen from the main');
   });
   twoWayIsolate.sendPort.send('send from the main');
+
+  //.....
+  // use close function when you done
 }
 
 void doSomeThingInIsolate(sendPort, ReceivePort receivePort) {
